@@ -53,7 +53,7 @@ pipeline {
       steps {
         script {
           echo "Reupload already built docker images: $uploadedTag"
-          image = docker.image("$registry/pharmacy-lab-landing:$uploadedTag")
+          image = docker.image("$registry/pharmacy-lab-landing/build:$uploadedTag")
           image.pull()
           alreadyCompleted = true
         }
@@ -79,7 +79,7 @@ pipeline {
           }
           steps {
             script {
-              image = docker.build("$registry/pharmacy-lab-landing:$IMAGE_TAG")
+              image = docker.build("$registry/pharmacy-lab-landing/build:$IMAGE_TAG")
             }
           }
         }
