@@ -1,7 +1,7 @@
 import {Icon} from './Icon';
 
 type Props = {
-  className: string;
+  className?: string;
   dark?: boolean;
 };
 
