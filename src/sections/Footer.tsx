@@ -5,7 +5,7 @@ export const Footer = () => (
     <footer className='container'>
       <div className='wrapper'>
         <div className='line'>
-          <Logo dark />
+          <Logo dark className='logo' />
           <div className='contacts'>
             <div className='contact'>
               <span className='label'>Телефон</span>
@@ -40,6 +40,11 @@ export const Footer = () => (
       }
       .line {
         display: flex;
+        align-items: flex-start;
+
+        :global(.logo) {
+          margin-top: 10px;
+        }
       }
       .contacts {
         display: flex;

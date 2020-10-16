@@ -2,6 +2,7 @@ import {SectionTitle} from '../components/SectionTitle';
 import {Dialog} from '../components/Dialog';
 import {HorizontalSlider} from '../components/HorizontalSlider';
 import {useState} from 'react';
+import {Icon} from '../components/Icon';
 
 const dialogs = [
   {
@@ -58,7 +59,7 @@ export const Talk = () => {
                 disabled={currentIndex === 0}
                 onClick={() => setCurrentIndex(currentIndex - 1)}
               >
-                <span className='controls-icon left' />
+                <Icon name='chevron-left' width={48} height={48} />
               </button>
               <button
                 type='button'
@@ -67,7 +68,7 @@ export const Talk = () => {
                 disabled={currentIndex === dialogs.length - 1}
                 onClick={() => setCurrentIndex(currentIndex + 1)}
               >
-                <span className='controls-icon right' />
+                <Icon name='chevron-right' width={48} height={48} />
               </button>
             </div>
             <div className='slider-wrapper'>
@@ -114,18 +115,6 @@ export const Talk = () => {
 
           &:hover {
             opacity: 1;
-          }
-        }
-        .controls-icon {
-          display: block;
-          width: 48px;
-          height: 48px;
-
-          &.left {
-            background: url('/icons/chevron-left.svg');
-          }
-          &.right {
-            background: url('/icons/chevron-right.svg');
           }
         }
         .dialogs {

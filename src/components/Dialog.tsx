@@ -1,3 +1,5 @@
+import {Icon} from './Icon';
+
 type Props = {
   question: string;
   response: string;
@@ -8,7 +10,9 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
   <>
     <div className='wrapper'>
       <div className={'message question' + (isActive ? ' active' : ' inactive')}>
-        <span className='message-avatar' />
+        <span className='message-avatar'>
+          <Icon name='question' width={25} height={23} />
+        </span>
         <div className='message-bubble'>
           <p className='message-text'>{question}</p>
         </div>
@@ -17,7 +21,9 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
         <div className='message-bubble response'>
           <p className='message-text response'>{response}</p>
         </div>
-        <span className='message-avatar response' />
+        <span className='message-avatar'>
+          <Icon name='response' width={26} height={38} />
+        </span>
       </div>
     </div>
     <style jsx>{`
@@ -72,26 +78,13 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
 
       .message-avatar {
         display: flex;
+        align-items: center;
+        justify-content: center;
         flex-grow: 0;
         width: 68px;
         height: 68px;
         border-radius: 50%;
         background: #fff;
-
-        &::after {
-          display: block;
-          content: '';
-          width: 25px;
-          height: 23px;
-          margin: auto;
-          background: url('/icons/question.svg') no-repeat;
-        }
-
-        &.response::after {
-          width: 26px;
-          height: 38px;
-          background: url('/icons/response.svg') no-repeat;
-        }
       }
       .message-bubble {
         position: relative;

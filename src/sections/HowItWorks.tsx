@@ -1,4 +1,5 @@
 import {SectionTitle} from '../components/SectionTitle';
+import {Icon} from '../components/Icon';
 
 export const HowItWorks = () => (
   <>
@@ -6,7 +7,8 @@ export const HowItWorks = () => (
       <div className='wrapper'>
         <SectionTitle>Как это работает для вашего клиента</SectionTitle>
         <div className='grid'>
-          <div className='quote'>
+          <div className='quote' style={{gridArea: 'h1'}}>
+            <Icon name='quote' className='quote-icon' color='#5bb75f' />
             Хочу найти самый выгодный <br /> безрецептурный препарат
           </div>
           <Item icon='search' text='Клиент ищет препарат' area='c1' />
@@ -14,7 +16,8 @@ export const HowItWorks = () => (
           <Item icon='pharmacy' text='Выбирает подходящий по стоимости и местоположению вариант' area='c3' />
           <Item icon='delivery' text='Мы бронируем препарат или оформляем доставку' area='c4' isLast />
           <FinalItem />
-          <div className='quote second'>
+          <div className='quote' style={{gridArea: 'h2'}}>
+            <Icon name='quote' className='quote-icon' color='#ff6c1a' />
             Хочу купить рецептурный препарат в <br /> один клик
           </div>
           <Item icon='web' text='Клиент заходит на страницу любимой аптеки' area='d1' red />
@@ -45,25 +48,18 @@ export const HowItWorks = () => (
           'd1_2 d2_2 d3_2 d4_2 .';
       }
       .quote {
-        grid-area: h1;
+        position: relative;
         margin: 120px 0 60px;
         line-height: 30px;
         font-size: 25px;
         font-weight: 500;
-
-        &.second {
-          grid-area: h2;
-        }
-
-        &::before {
-          position: relative;
-          display: block;
-          top: -20px;
-          content: '';
-          width: 39px;
-          height: 35px;
-          background: url('/icons/quote.svg') no-repeat;
-        }
+      }
+      :global(.quote-icon) {
+        position: absolute;
+        top: -55px;
+        left: 0;
+        width: 39px;
+        height: 35px;
       }
     `}</style>
   </>
@@ -82,7 +78,7 @@ const Item = ({icon, text, area, isLast = false, red = false}: ItemProps) => (
     <div className='icon' style={{gridArea: `${area}_1`}}>
       <span className={'circle' + (red ? ' red' : '')} />
       <span className={'arrow' + (isLast ? '' : ' pike') + (red ? ' red' : '')} />
-      <span className='icon-pic' style={{backgroundImage: `url('/icons/${icon}.svg')`}} />
+      <Icon name={icon} className='icon-pic' />
     </div>
     <p className='text' style={{gridArea: `${area}_2`}}>
       {text}
@@ -135,14 +131,14 @@ const Item = ({icon, text, area, isLast = false, red = false}: ItemProps) => (
           border-left-color: #ff6c19;
         }
       }
-      .icon-pic {
+      :global(.icon-pic) {
         position: absolute;
         top: -14px;
         left: -30px;
         width: 60px;
         height: 60px;
-        background-repeat: no-repeat;
-        background-position: center;
+        //background-repeat: no-repeat;
+        //background-position: center;
       }
       .text {
         max-width: 210px;

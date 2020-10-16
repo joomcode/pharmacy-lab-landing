@@ -1,5 +1,6 @@
 import {SectionTitle} from '../components/SectionTitle';
 import {Dot} from '../components/Dot';
+import {Icon} from '../components/Icon';
 
 const features = [
   {
@@ -43,7 +44,7 @@ export const Features = () => {
             {features.map(({icon, color, title, text}) => (
               <div key={title} className='feature'>
                 <span className='feature-icon-wrapper' style={{background: color}}>
-                  <span className='feature-icon' style={{backgroundImage: `url('/icons/${icon}.svg')`}} />
+                  <Icon name={icon} width={45} height={45} />
                 </span>
                 <h2 className='feature-title'>{title}</h2>
                 <p className='feature-text'>{text}</p>
@@ -75,16 +76,12 @@ export const Features = () => {
         }
         .feature-icon-wrapper {
           display: flex;
+          align-items: center;
+          justify-content: center;
           width: 80px;
           height: 80px;
           margin-bottom: 34px;
           border-radius: 50%;
-        }
-        .feature-icon {
-          display: block;
-          width: 45px;
-          height: 45px;
-          margin: auto;
         }
         .feature-title {
           font-weight: 500;

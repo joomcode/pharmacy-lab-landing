@@ -1,11 +1,14 @@
+import {Icon} from './Icon';
+
 type Props = {
+  className: string;
   dark?: boolean;
 };
 
-export const Logo = ({dark = false}: Props) => (
+export const Logo = ({className, dark = false}: Props) => (
   <>
-    <div className={'logo' + (dark ? ' dark' : '')}>
-      <span className='logo-icon' />
+    <div className={'logo' + (dark ? ' dark' : '') + ` ${className}`}>
+      <Icon name='logo' width={109} height={20} color={dark ? '#000' : '#fff'} />
       <span className='split' />
       <span className='logo-text'>Pharm Solutions</span>
     </div>
@@ -13,16 +16,6 @@ export const Logo = ({dark = false}: Props) => (
       .logo {
         display: flex;
         align-items: center;
-      }
-      .logo-icon {
-        display: block;
-        width: 109px;
-        height: 20px;
-        background: url('/logo.svg') no-repeat;
-
-        .dark & {
-          background: url('/logo_dark.svg') no-repeat;
-        }
       }
       .split {
         display: block;
