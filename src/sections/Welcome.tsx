@@ -8,14 +8,14 @@ export const Welcome = () => (
       </header>
       <div className='main-content'>
         <h1 className='main-title'>
-          Ставим digital-прогресс <br /> на службу локальных аптек
+          Der Digital-Progress im Einsatz <br /> für lokale Apotheken
         </h1>
         <p className='main-sub-title'>
-          Помогаем аптекам привлекать новых клиентов, а покупателям <br /> — быстро и удобно находить и бронировать
-          препараты
+          Wir helfen den Apotheken neue Kunden zu gewinnen, und den Kunden - <br /> schnell und bequem Medikamente zu
+          finden und zu buchen
         </p>
         <button className='main-connect' type='button'>
-          Присоединиться
+          Beitreten
         </button>
       </div>
     </div>

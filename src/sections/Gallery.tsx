@@ -6,9 +6,9 @@ import {SectionTitle} from '../components/SectionTitle';
 const screens = [
   {
     screenId: '2',
-    title: 'Эффективный канал привлечения клиентов',
+    title: 'Einen effizienten Weg zur Gewinnung von neuen Kunden',
     text:
-      'Мы инвестируем значительные усилия и средства в продвижение. Наш сервис поможет большему числу людей узнать о вашей аптеке и стать ее постоянными покупателями.',
+      'Wir investieren erheblichen Arbeitsaufwand und Geldmittel in die Förderung. Dank unserem Service erfahren mehr Leute über Ihre Apotheke und werden zu Ihren Stammkunden',
     dots: [
       {
         top: -0.1,
@@ -22,17 +22,33 @@ const screens = [
   },
   {
     screenId: '3',
-    title: 'Всегда на связи с клиентом',
+    title: 'Aktuelle Preise für Medikamente in Ihrer Apothek',
     text:
-      'Ваши фармацевты смогут проконсультировать потенциального покупателя и быть всегда с ним на связи с помощью чата, писем, пуш-уведомлений и персональных предложений. ',
+      'Wir zeigen Ihre jetzigen Preise und aktualisieren diese rechtzeitig, damit die Kunden all Ihre günstigen Preise und Sonderangebote einsehen',
   },
   {
     screenId: '4',
-    title: 'Эффективный канал привлечения клиентов',
+    title: 'Immer für den Kunden da',
     text:
-      'Мы инвестируем значительные усилия и средства в продвижение. Наш сервис поможет большему числу людей узнать о вашей аптеке и стать ее постоянными покупателями.',
+      'Ihre Pharmazeuten können den Kaufinteressenten beraten sowie mit ihm via Chat, Push-Benachrichtigungen und individuelle Angebote immer im Kontakt bleiben',
+  },
+  {
+    screenId: '4',
+    title: 'Persönliche Homepage der Apotheke in der App und auf der Webseite',
+    text:
+      'Sie brauchen keine vollwertige Webseite zu unterstützen, um im Blickfeld Ihrer Kunden zu stehen. Schaffen Sie anhand der einfachen Tools Ihre individuelle Homepage in unserem Service - ohne Entwicklungsarbeiten',
   },
 ];
+
+function findByThreshold(param: number, thresholds: number[]) {
+  for (let i = 0; i < thresholds.length; i++) {
+    if (param < thresholds[i]) {
+      return i;
+    }
+  }
+
+  return thresholds.length;
+}
 
 export const Gallery = () => {
   const [screenIndex, setScreenIndex] = useState(0);
@@ -71,31 +87,19 @@ export const Gallery = () => {
     function onScroll() {
       const scrollTop = (document as any).scrollingElement.scrollTop;
 
-      const thresholds = scrollTop > prevScrollTopRef.current ? [0.2, 0.5] : [0.3, 0.8];
+      const thresholds = scrollTop > prevScrollTopRef.current ? [0.2, 0.45, 0.7] : [0.2, 0.5, 0.8];
       let index;
 
       if (isLongScreen) {
         const height = window.innerHeight - scrollZoneRef.current.offsetHeight;
         const scroll = height - scrollZoneRef.current.offsetTop + scrollTop;
 
-        if (scroll < height * 0.45) {
-          index = 0;
-        } else if (scroll < height * 0.75) {
-          index = 1;
-        } else {
-          index = 2;
-        }
+        index = findByThreshold(scroll / height, [0.45, 0.65, 0.85]);
       } else {
         const scroll = scrollTop - scrollZoneRef.current.offsetTop;
         const height = scrollZoneRef.current.offsetHeight - window.innerHeight;
 
-        if (scroll < height * thresholds[0]) {
-          index = 0;
-        } else if (scroll < height * thresholds[1]) {
-          index = 1;
-        } else {
-          index = 2;
-        }
+        index = findByThreshold(scroll / height, thresholds);
       }
 
       prevScrollTopRef.current = scrollTop;
@@ -126,15 +130,18 @@ export const Gallery = () => {
             <div className='left-wrapper'>
               <div className='left-container'>
                 <div className='left-inner'>
-                  <SectionTitle isSmall>Что мы предлагаем</SectionTitle>
-                  <Slider count={3} activeIndex={screenIndex} onClick={onSliderClick} />
+                  <SectionTitle isSmall>
+                    {' '}
+                    Was bieten <br /> wir an
+                  </SectionTitle>
+                  <Slider count={screens.length} activeIndex={screenIndex} onClick={onSliderClick} />
                 </div>
               </div>
             </div>
             <div className='gallery'>
               <div className='gallery-list' ref={galleryRef}>
                 {screens.map((params) => (
-                  <FeatureScreen key={params.screenId} {...params} />
+                  <FeatureScreen key={params.title} {...params} />
                 ))}
               </div>
             </div>
