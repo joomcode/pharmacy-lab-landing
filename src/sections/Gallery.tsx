@@ -118,12 +118,13 @@ export const Gallery = () => {
         .wrapper {
           display: flex;
           max-width: 1440px;
-          padding: 86px 60px 130px;
+          padding: 0 60px 100px;
           margin: 0 auto;
         }
         .title-wrapper {
           flex-basis: 100px;
           flex-grow: 1;
+          margin-top: 86px;
         }
         .title {
           position: sticky;
@@ -134,7 +135,6 @@ export const Gallery = () => {
           position: sticky;
           top: 0;
           display: flex;
-          min-height: 100vh;
           height: 100vh;
         }
         .texts-wrapper {
@@ -147,7 +147,7 @@ export const Gallery = () => {
           max-width: 315px;
         }
         .item {
-          margin: 250px 0 160px;
+          margin: 250px 0 180px;
 
           &:not(:first-of-type) {
             margin-top: 400px;
