@@ -1,8 +1,9 @@
 type Props = {
   screenId: string;
+  opacity: number;
 };
 
-export const Phone = ({screenId}: Props) => (
+export const Phone = ({screenId, opacity}: Props) => (
   <>
     <div className='wrapper'>
       <div className='circle' />
@@ -10,6 +11,7 @@ export const Phone = ({screenId}: Props) => (
       <div
         className='screen'
         style={{
+          opacity,
           backgroundImage: `url('/screens/${screenId}.png')`,
         }}
       />
@@ -19,7 +21,7 @@ export const Phone = ({screenId}: Props) => (
       .wrapper {
         display: inline-block;
         position: relative;
-        margin: 76px 0;
+        margin: auto;
       }
       .circle {
         position: absolute;
