@@ -14,9 +14,11 @@ export const Welcome = () => (
           Wir unterstützen Apotheken dabei, neue Kunden zu gewinnen – und <br /> Kunden dabei, schnell und bequem
           Medikamente zu finden und zu reservieren
         </p>
-        <button className='main-connect' type='button'>
-          Beitreten
-        </button>
+        <a href='#contact'>
+          <button className='main-connect' type='button'>
+            Beitreten
+          </button>
+        </a>
       </div>
     </div>
     <style jsx>{`

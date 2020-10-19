@@ -20,7 +20,7 @@ export const Feedback = () => {
             <SectionTitle>Kontaktformular</SectionTitle>
             <p className='text'>Möchten Sie mit J-Pharmacy zusammenarbeiten? Geben Sie Ihre Kontaktdaten an</p>
           </div>
-          <form className='form' onSubmit={onSubmit}>
+          <form className='form' id='contact' onSubmit={onSubmit}>
             <input className='input' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
             <input className='input' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
             <textarea
