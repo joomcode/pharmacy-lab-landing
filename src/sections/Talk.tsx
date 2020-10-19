@@ -6,24 +6,24 @@ import {Icon} from '../components/Icon';
 
 const dialogs = [
   {
-    question: 'Хочу поддержать локальный бизнес, а не международных гигантов',
+    question: 'Ich möchte den lokalen Einzelhandel und nicht die globalen Online-Giganten unterstützen',
     response:
-      'Многие люди хотят поддержать бизнес в своем городе, а мы стремимся стать сервисом, который поможет им в этом.',
+      'Viele Leute wollen den Einzelhandel in ihrer eigenen Stadt unterstützen, und wir möchten dazu beitragen, dass das noch bequemer möglich ist.',
   },
   {
-    question: 'Хочу поддержать локальный бизнес, Impsum',
+    question: 'Existierende Online-Apotheken sind nicht benutzerfreundlich und praktisch',
     response:
-      'Lorem ipsum dolor sit amet consectetur adipiscing, elit nullam tempor diam sem inceptos neque, enim vitae iaculis mauris fames.',
+      'Oft kaufen Kunden Medikamente in großen Online-Versandapotheken, weil Arzneimittel auf den Webseiten der lokalen Apotheken nicht bequem bestellt werden können. Wir haben die meisten Schwierigkeiten der Kunden dabei berücksichtigt und unsere Schnittstelle benutzerfreundlich und einfach gestaltet.',
   },
   {
-    question: 'Lorem не международных гигантов',
+    question: 'Wie finde ich in der Nähe eine Apotheke mit dem günstigsten Angebot für OTC-Arzneimittel?',
     response:
-      'Viverra eu sem eget nibh cursus tortor nostra placerat, etiam pellentesque curabitur eros hendrerit condimentum class, dapibus tempor fusce gravida in dictum non.',
+      'Wir schaffen einen gemeinschaftlichen Raum, wo der Kunde ein günstiges Angebot von den Apotheken in seiner Nähe leicht finden und auswählen kann.',
   },
   {
-    question: 'Хочу поддержать, а не международных гигантов',
+    question: 'Ich will Produkte bei den bewährten deutschen Apotheken kaufen',
     response:
-      'Facilisi orci luctus habitant venenatis accumsan enim conubia fringilla neque metus, netus cursus erat nullam leo scelerisque a turpis ultricies ante, sagittis litora curabitur elementum euismod lectus volutpat nisl semper.',
+      'Jeder zweite Befragte betont, dass er kein Vertrauen zu großen ausländischen Arzneimittelverkäufern hat, aber zugleich auch keinen lokalen Service mit gutem Ruf und großem Sortiment kennt. Wir wollen deutsche lokale Apotheken verbinden, um dieses Problem zu beheben.',
   },
 ];
 
@@ -35,7 +35,7 @@ export const Talk = () => {
       <div className='container'>
         <div className='wrapper'>
           <SectionTitle dotColor='#fff' color='#fff'>
-            Мы слышим о чем <br /> говорят наши клиенты
+            Wir hören Ihren <br /> Kunden zu
           </SectionTitle>
           <div className='chat-gallery'>
             <div className='dialogs'>

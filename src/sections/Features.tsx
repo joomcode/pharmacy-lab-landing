@@ -1,33 +1,31 @@
-import {SectionTitle} from '../components/SectionTitle';
-import {Dot} from '../components/Dot';
 import {Icon} from '../components/Icon';
 
 const features = [
   {
     icon: 'prescription',
     color: '#fdf1da',
-    title: 'Интеграция с e-prescription',
+    title: 'Integration von E-Rezepten',
     text:
-      'Как только обновится законодательство, ваши клиенты смогут заказать рецептурный препарат через наш сервис в один клик',
+      'Sobald die Gesetzgebung erneuert wird, können Ihre Kunden über unseren Service Rx-Arzneimittel mit einem Mausklick bestellen',
   },
   {
     icon: 'computer',
     color: '#eaf3f2',
-    title: 'Простое подключение',
-    text: 'Мы возьмем на себя подключение вашей аптеки: с вашей стороны потребуется минимум усилий и времени',
+    title: 'Einfache Integration von Apotheken',
+    text: 'Wir übernehmen die Integration Ihrer Apotheke: Sie benötigen nur minimal Aufwand und Zeit',
   },
   {
     icon: 'chat',
     color: '#d9ebf7',
-    title: 'Удобный интерфейс для ваших клиентов',
+    title: 'Bedienerfreundliche Schnittstelle für Ihre Kunden',
     text:
-      'Мы провели интервью с вашими покупателями и знаем, чем они недовольны при поиске и бронировании препаратов через интернет. В J-Pharm этих неудобств нет.',
+      'Nach einer Umfrage unter Apothekenkunden wissen wir genau, womit diese beim Online-Kauf von Medikamenten unzufrieden sind. J-Pharm hat diese Mängel nicht',
   },
   {
     icon: 'car',
     color: '#e4ddf1',
-    title: 'Сервис доставки',
-    text: 'Доставляйте заказы сами или пользуйтесь нашей службой доставки',
+    title: 'Lieferservice',
+    text: 'Liefern Sie selbst oder nutzen Sie unseren Lieferservice',
   },
 ];
 
@@ -35,11 +33,7 @@ export const Features = () => {
   return (
     <>
       <div className='container'>
-        <Dot top={0.15} left={0.23} />
-        <Dot top={0.5} left={0.33} />
-        <Dot top={0.55} left={0.58} />
         <div className='wrapper'>
-          <SectionTitle>Что мы предлагаем</SectionTitle>
           <div className='grid'>
             {features.map(({icon, color, title, text}) => (
               <div key={title} className='feature'>
@@ -61,13 +55,12 @@ export const Features = () => {
           position: relative;
           max-width: 1440px;
           margin: auto;
-          padding: 135px 60px 100px 60px;
+          padding: 112px 60px 100px 60px;
         }
         .grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
           grid-gap: 55px;
-          margin: 60px 0;
         }
         .feature {
           display: flex;

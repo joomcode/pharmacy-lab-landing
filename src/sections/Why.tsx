@@ -1,18 +1,18 @@
 import {SectionTitle} from '../components/SectionTitle';
-import {Dot} from '../components/Dot';
 
 const texts = [
   {
-    text: 'Мы знаем, как привлечь новых пользователей и помочь им стать вашими постоянными клиентами',
+    text: 'ir übernehmen den gesamten Aufwand rund um die Integration Ihrer Apotheke zu unserem Service',
   },
   {
-    text: 'Мы берем всю работу по подключению к нашему сервису на себя',
+    text: 'Wir wissen, wie wir neue Kunden für Sie gewinnen und zu Ihren Stammkunden machen',
   },
   {
-    text: 'Мы быстро реагируем на обратную связь от вас',
+    text:
+      'Wir helfen dabei, Ihre Kommunikation mit Kunden zu entwickeln, damit der Kundenservice zu einer Kundenbindung führt',
   },
   {
-    text: 'Мы предоставляем новые возможности локальному аптечному бизнесу',
+    text: 'Wir bieten neue Möglichkeiten für lokale Apotheken',
   },
 ];
 
@@ -20,9 +20,8 @@ export const Why = () => (
   <>
     <div className='container'>
       <div className='wrapper'>
-        <Dot top={0.74} left={0.22} />
         <SectionTitle color='#fff'>
-          Почему Joom Pharm <br /> Solutions?
+          Warum Joom Pharm <br /> Solutions?
         </SectionTitle>
         <div className='grid'>
           {texts.map(({text}, i) => (

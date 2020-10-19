@@ -7,25 +7,25 @@ const screens = [
     screenId: '2',
     title: 'Einen effizienten Weg zur Gewinnung von neuen Kunden',
     text:
-      'Wir investieren erheblichen Arbeitsaufwand und Geldmittel in die Förderung. Dank unserem Service erfahren mehr Leute über Ihre Apotheke und werden zu Ihren Stammkunden',
+      'Wir investieren erheblich in Marketing und die Förderung Ihrer Bekanntheit. Dank unserem Service erfahren mehr Menschen von Ihrer Apotheke und werden zu Ihren Stammkunden',
   },
   {
     screenId: '3',
-    title: 'Aktuelle Preise für Medikamente in Ihrer Apothek',
+    title: 'Aktuelle Preise für Medikamente in Ihrer Apotheke',
     text:
-      'Wir zeigen Ihre jetzigen Preise und aktualisieren diese rechtzeitig, damit die Kunden all Ihre günstigen Preise und Sonderangebote einsehen',
+      'Wir zeigen Ihre Preise an und aktualisieren diese regelmäßig, damit die Kunden jederzeit Ihre günstigen Konditionen und Sonderangebote sehen',
   },
   {
     screenId: '5',
-    title: 'Immer für den Kunden da',
+    title: 'Beste Erreichbarkeit für Ihre Kunden',
     text:
-      'Ihre Pharmazeuten können den Kaufinteressenten beraten sowie mit ihm via Chat, Push-Benachrichtigungen und individuelle Angebote immer im Kontakt bleiben',
+      'Ihre Apotheker können die Kaufinteressenten beraten sowie via Chat, Push-Benachrichtigungen und individuellen Angebote immer mit Kunden in Kontakt bleiben',
   },
   {
     screenId: '5',
-    title: 'Persönliche Homepage der Apotheke in der App und auf der Webseite',
+    title: 'Persönliche Homepage Ihrer Apotheke in der App und auf der Webseite',
     text:
-      'Sie brauchen keine vollwertige Webseite zu unterstützen, um im Blickfeld Ihrer Kunden zu stehen. Schaffen Sie anhand der einfachen Tools Ihre individuelle Homepage in unserem Service - ohne Entwicklungsarbeiten',
+      'Sie brauchen keine eigene Webseite erstellen zu lassen, um im Blickfeld Ihrer Kunden zu stehen. Entwerfen Sie mit unseren einfachen Tools Ihre individuelle Homepage und nutzen Sie unseren Service - ohne Entwicklungsarbeiten',
   },
 ];
 

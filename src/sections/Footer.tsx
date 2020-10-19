@@ -8,15 +8,15 @@ export const Footer = () => (
           <Logo dark className='logo' />
           <div className='contacts'>
             <div className='contact'>
-              <span className='label'>Телефон</span>
+              <span className='label'>Kontaktdaten</span>
               <span className='value'>+49 685323 24</span>
             </div>
             <div className='contact'>
-              <span className='label'>Почта</span>
+              <span className='label'>E-Mail-Adresse</span>
               <div className='value'>PharmSolutions@joom.com</div>
             </div>
             <div className='contact'>
-              <span className='label'>Юридический адрес</span>
+              <span className='label'>Juristische Adresse</span>
               <span className='value'>Hauptstraße 18a, 38118 Braunschweig</span>
             </div>
           </div>

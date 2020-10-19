@@ -5,25 +5,39 @@ export const HowItWorks = () => (
   <>
     <div className='container'>
       <div className='wrapper'>
-        <SectionTitle>Как это работает для вашего клиента</SectionTitle>
+        <SectionTitle>
+          Wie funktioniert das <br /> für Ihre Kunden
+        </SectionTitle>
         <div className='grid'>
           <div className='quote' style={{gridArea: 'h1'}}>
             <Icon name='quote' className='quote-icon' color='#5bb75f' />
-            Хочу найти самый выгодный <br /> безрецептурный препарат
+            Ich will möglichst bequem ein <br /> OTC-Arzneimittel kaufen
           </div>
-          <Item icon='search' text='Клиент ищет препарат' area='c1' />
-          <Item icon='results' text='Видит предложения от разных аптек' area='c2' />
-          <Item icon='pharmacy' text='Выбирает подходящий по стоимости и местоположению вариант' area='c3' />
-          <Item icon='delivery' text='Мы бронируем препарат или оформляем доставку' area='c4' isLast />
+          <Item icon='search' text='Der Kunde sucht nach dem Medikament' area='c1' />
+          <Item icon='results' text='Er sieht die Angebote von unterschiedlichen Apotheken' area='c2' />
+          <Item icon='pharmacy' text='Er wählt die Variante, welche ihm preislich und geographisch passt' area='c3' />
+          <Item
+            icon='delivery'
+            text='Wir reservieren das Medikament oder bereiten es für die Lieferung vor'
+            area='c4'
+            isLast
+            isLastTop
+          />
           <FinalItem />
           <div className='quote' style={{gridArea: 'h2'}}>
             <Icon name='quote' className='quote-icon' color='#ff6c1a' />
-            Хочу купить рецептурный препарат в <br /> один клик
+            Ich will ein Rx-Arzneimittel mit einem <br /> Mausklick kaufen
           </div>
-          <Item icon='web' text='Клиент заходит на страницу любимой аптеки' area='d1' red />
-          <Item icon='click' text='Отправляет e-prescription в один клик' area='d2' red />
-          <Item icon='consult' text='Фармацевт консультирует и подбирает нужное лекарство' area='d3' red />
-          <Item icon='take' text='Клиент забирает лекарство' area='d4' isLast red />
+          <Item icon='web' text='Der Kunde geht auf die Seite seiner Lieblingsapotheke' area='d1' red />
+          <Item icon='click' text='Er sendet das E-Rezept mit einem Mausklick' area='d2' red />
+          <Item icon='consult' text='Der Apotheker findet das notwendige Medikament' area='d3' red />
+          <Item
+            icon='take'
+            text='Wir reservieren das Medikament oder bereiten es für die Lieferung vor'
+            area='d4'
+            isLast
+            red
+          />
         </div>
       </div>
     </div>
@@ -70,17 +84,18 @@ type ItemProps = {
   text: string;
   area: string;
   isLast?: boolean;
+  isLastTop?: boolean;
   red?: boolean;
 };
 
-const Item = ({icon, text, area, isLast = false, red = false}: ItemProps) => (
+const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}: ItemProps) => (
   <>
     <div className='icon' style={{gridArea: `${area}_1`}}>
       <span className={'circle' + (red ? ' red' : '')} />
       <span className={'arrow' + (isLast ? '' : ' pike') + (red ? ' red' : '')} />
       <Icon name={icon} className='icon-pic' />
     </div>
-    <p className='text' style={{gridArea: `${area}_2`}}>
+    <p className={'text' + (isLastTop ? ' last' : '')} style={{gridArea: `${area}_2`}}>
       {text}
     </p>
     <style jsx>{`
@@ -147,6 +162,10 @@ const Item = ({icon, text, area, isLast = false, red = false}: ItemProps) => (
         font-size: 20px;
         color: #2d2d34;
         opacity: 0.8;
+
+        &.last {
+          margin-right: 40px;
+        }
       }
     `}</style>
   </>
@@ -161,7 +180,7 @@ const FinalItem = () => (
           <span className='icon' />
         </span>
         <p className='text'>
-          Клиент доволен <br /> вашей аптекой
+          Der Kunde ist mit <br /> Ihrer ApothekE <br /> zufrieden
         </p>
       </div>
       <span className='bottom-arrow' />
@@ -176,14 +195,13 @@ const FinalItem = () => (
         position: relative;
         flex-grow: 1;
         margin: 32px 0;
-        border-top: 1px solid #5bb75f;
-        border-right: 1px solid #5bb75f;
+        border-left: 1px solid #5bb75f;
 
         &::after {
           position: absolute;
           content: '';
           bottom: -10px;
-          right: -6px;
+          left: -6px;
           width: 6px;
           height: 6px;
           border: 6px solid transparent;
@@ -194,14 +212,13 @@ const FinalItem = () => (
         position: relative;
         flex-grow: 1;
         margin: 32px 0 31px;
-        border-bottom: 1px solid #ff6c19;
-        border-right: 1px solid #ff6c19;
+        border-left: 1px solid #ff6c19;
 
         &::after {
           position: absolute;
           content: '';
           top: -10px;
-          right: -6px;
+          left: -6px;
           width: 6px;
           height: 6px;
           border: 6px solid transparent;
@@ -212,7 +229,7 @@ const FinalItem = () => (
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-right: -100%;
+        margin-left: -100%;
       }
       .circle {
         display: flex;

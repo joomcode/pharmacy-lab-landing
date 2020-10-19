@@ -8,11 +8,11 @@ export const Welcome = () => (
       </header>
       <div className='main-content'>
         <h1 className='main-title'>
-          Der Digital-Progress im Einsatz <br /> für lokale Apotheken
+          Die digitale Lösung für lokale <br /> Apotheken
         </h1>
         <p className='main-sub-title'>
-          Wir helfen den Apotheken neue Kunden zu gewinnen, und den Kunden - <br /> schnell und bequem Medikamente zu
-          finden und zu buchen
+          Wir unterstützen Apotheken dabei, neue Kunden zu gewinnen – und <br /> Kunden dabei, schnell und bequem
+          Medikamente zu finden und zu reservieren
         </p>
         <button className='main-connect' type='button'>
           Beitreten

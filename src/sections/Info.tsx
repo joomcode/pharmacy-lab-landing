@@ -3,20 +3,20 @@ export const Info = () => (
     <div className='container'>
       <div className='wrapper'>
         <div className='column'>
-          <h2 className='title'>Wir glauben an die Relevanz der Apotheken-Mission</h2>
+          <h2 className='title'>Wir glauben an die Wichtigkeit der Apotheken-Mission.</h2>
         </div>
         <div className='column'>
-          <h3 className='sub-title'>Die aktuelle Realität stellt neue Herausforderungen an die lokale Geschäftswelt</h3>
+          <h3 className='sub-title'>Der heutige Alltag stellt neue Herausforderungen an die lokale Geschäftswelt</h3>
           <ul className='list'>
-            <li className='item'>Corona-Krise</li>
+            <li className='item'>Die Corona-Krise</li>
             <li className='item'>Der massenweise Wechsel zum Online-Shopping</li>
             <li className='item'>Verstärkter Wettbewerb mit ausländischen Konzernen</li>
-            <li className='item'>Begrenzte Kundengeographie</li>
+            <li className='item'>Der begrenzte Radius vieler Kunden</li>
           </ul>
         </div>
         <div className='column'>
           <h3 className='sub-title'>
-            Wir sind da, um den lokalen Apotheken trotz allem zu helfen, gutgehendes Geschäft zu entwickeln.
+            Wir möchten den lokalen Apotheken trotz alledem zu helfen, ein gut gehendes Geschäft zu entwickeln
           </h3>
         </div>
       </div>
