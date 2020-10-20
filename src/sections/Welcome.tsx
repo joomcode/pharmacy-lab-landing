@@ -24,11 +24,24 @@ export const Welcome = () => (
     <style jsx>{`
       .main {
         position: relative;
-        background: url('/cover.jpg') no-repeat 61% 50%;
+        background: url('/cover_narrow.jpg') no-repeat 31% top;
         background-size: cover;
 
+        @media (min-width: 375px) {
+          background-position: 64% top;
+        }
+
         @media (min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-          background-image: url('/cover@2x.jpg');
+          background-image: url('/cover_narrow@2x.jpg');
+        }
+
+        @media (min-width: 768px) {
+          background-image: url('/cover.jpg');
+          background-position: center top;
+
+          @media (min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+            background-image: url('/cover@2x.jpg');
+          }
         }
 
         &::after {
@@ -39,10 +52,6 @@ export const Welcome = () => (
           bottom: 0;
           content: '';
           background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
-        }
-
-        @media (min-width: 768px) {
-          background-position: center top;
         }
 
         br {
