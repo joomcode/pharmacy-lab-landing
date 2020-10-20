@@ -11,21 +11,38 @@ export const Layout = ({title, children}: Props) => (
     <Head>
       <meta charSet='utf-8' />
       <title>{title}</title>
-      <meta name='viewport' content='width=1024, initial-scale=1' />
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
       <link rel='icon' href='/favicon.png' />
       <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap' rel='stylesheet' />
     </Head>
     {children}
     <style jsx global>{`
+      html,
       body {
-        min-width: 1024px;
+        width: 100%;
+        overflow-x: hidden;
       }
+
       body,
       input,
       textarea,
       button {
         font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
           'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      :root {
+        --padding: 60px;
+
+        @media (max-width: 768px) {
+          --padding: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        br {
+          display: none;
+        }
       }
     `}</style>
   </>

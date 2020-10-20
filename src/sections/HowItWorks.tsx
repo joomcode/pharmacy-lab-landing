@@ -1,106 +1,271 @@
 import {SectionTitle} from '../components/SectionTitle';
 import {Icon} from '../components/Icon';
+import {useEffect, useRef, useState} from 'react';
 
-export const HowItWorks = () => (
-  <>
-    <div className='container'>
-      <div className='wrapper'>
-        <SectionTitle>
-          Wie funktioniert das <br /> für Ihre Kunden
-        </SectionTitle>
+const clientsFeatures = [
+  {
+    icon: 'search',
+    text: 'Der Kunde sucht nach dem Medikament',
+  },
+  {
+    icon: 'results',
+    text: 'Er sieht die Angebote von unterschiedlichen Apotheken',
+  },
+  {
+    icon: 'pharmacy',
+    text: 'Er wählt die Variante, welche ihm preislich und geographisch passt',
+  },
+  {
+    icon: 'delivery',
+    text: 'Wir reservieren das Medikament oder bereiten es für die Lieferung vor',
+  },
+];
+
+const pharmacyFeatures = [
+  {
+    icon: 'web',
+    text: 'Der Kunde geht auf die Seite seiner Lieblingsapotheke',
+  },
+  {
+    icon: 'click',
+    text: 'Er sendet das E-Rezept mit einem Mausklick',
+  },
+  {
+    icon: 'consult',
+    text: 'Der Apotheker findet das notwendige Medikament',
+  },
+  {
+    icon: 'delivery',
+    text: 'Wir reservieren das Medikament oder bereiten es für die Lieferung vor',
+  },
+];
+
+export const HowItWorks = () => {
+  const [isPhone, setIsPhone] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    function onResize() {
+      setIsPhone((containerRef.current as any).offsetWidth < 768);
+    }
+
+    onResize();
+
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  const title1 = (
+    <>
+      Ich will möglichst bequem ein <br /> OTC-Arzneimittel kaufen
+    </>
+  );
+  const title2 = (
+    <>
+      Ich will ein Rx-Arzneimittel mit einem <br /> Mausklick kaufen
+    </>
+  );
+  let content;
+
+  if (isPhone) {
+    content = (
+      <>
+        <div className='quote'>
+          <Icon name='quote' className='quote-icon_mobile' color='#65b869' width={26} height={23} />
+          {title1}
+        </div>
+        <ul className='items-container'>
+          {clientsFeatures.map(({icon, text}, i) => (
+            <li key={i} className='item-wrapper'>
+              <Item icon={icon} text={text} longArrow />
+            </li>
+          ))}
+          <li className='item-wrapper'>
+            <FinalBadge />
+          </li>
+        </ul>
+        <div className='quote second'>
+          <Icon name='quote' className='quote-icon_mobile' color='#94c5bc' width={26} height={23} />
+          {title2}
+        </div>
+        <ul className='items-container'>
+          {pharmacyFeatures.map(({icon, text}, i) => (
+            <li key={i} className='item-wrapper'>
+              <Item icon={icon} text={text} red longArrow />
+            </li>
+          ))}
+          <li className='item-wrapper'>
+            <FinalBadge />
+          </li>
+        </ul>
+        <style jsx>{`
+          .quote {
+            position: relative;
+            margin: 100px var(--padding) 0;
+            line-height: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #2d2d34;
+
+            &.second {
+              margin-top: 160px;
+            }
+          }
+          :global(.quote-icon_mobile) {
+            position: absolute;
+            top: -30px;
+            left: 0;
+          }
+          .items-container {
+            display: flex;
+            padding: 20px var(--padding) 50px;
+            margin: 20px 0 70px;
+            list-style: none;
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+              height: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+              border-radius: 4px;
+              background: #e6e6e6;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              border-radius: 4px;
+              background: #5bb65f;
+            }
+
+            &::-webkit-scrollbar-button {
+              width: 10px;
+            }
+          }
+          .item-wrapper {
+            display: block;
+            width: 194px;
+            flex-shrink: 0;
+            padding: 20px 20px 0 0;
+          }
+        `}</style>
+      </>
+    );
+  } else {
+    content = (
+      <>
         <div className='grid'>
           <div className='quote' style={{gridArea: 'h1'}}>
-            <Icon name='quote' className='quote-icon' color='#65b869' />
-            Ich will möglichst bequem ein <br /> OTC-Arzneimittel kaufen
+            <Icon name='quote' className='quote-icon' color='#65b869' width={39} height={35} />
+            {title1}
           </div>
-          <Item icon='search' text='Der Kunde sucht nach dem Medikament' area='c1' />
-          <Item icon='results' text='Er sieht die Angebote von unterschiedlichen Apotheken' area='c2' />
-          <Item icon='pharmacy' text='Er wählt die Variante, welche ihm preislich und geographisch passt' area='c3' />
-          <Item
-            icon='delivery'
-            text='Wir reservieren das Medikament oder bereiten es für die Lieferung vor'
-            area='c4'
-            isLast
-            isLastTop
-          />
+          {clientsFeatures.map(({icon, text}, i) => (
+            <Item
+              key={i}
+              icon={icon}
+              text={text}
+              area={`c${i + 1}`}
+              isLast={i === clientsFeatures.length - 1}
+              isLastTop={i === clientsFeatures.length - 1}
+            />
+          ))}
           <FinalItem />
           <div className='quote second' style={{gridArea: 'h2'}}>
-            <Icon name='quote' className='quote-icon' color='#94c5bc' />
-            Ich will ein Rx-Arzneimittel mit einem <br /> Mausklick kaufen
+            <Icon name='quote' className='quote-icon' color='#94c5bc' width={39} height={35} />
+            {title2}
           </div>
-          <Item icon='web' text='Der Kunde geht auf die Seite seiner Lieblingsapotheke' area='d1' red />
-          <Item icon='click' text='Er sendet das E-Rezept mit einem Mausklick' area='d2' red />
-          <Item icon='consult' text='Der Apotheker findet das notwendige Medikament' area='d3' red />
-          <Item
-            icon='delivery'
-            text='Wir reservieren das Medikament oder bereiten es für die Lieferung vor'
-            area='d4'
-            isLast
-            red
-          />
+          {pharmacyFeatures.map(({icon, text}, i) => (
+            <Item key={i} icon={icon} text={text} area={`d${i + 1}`} red isLast={i === pharmacyFeatures.length - 1} />
+          ))}
+        </div>
+        <style jsx>{`
+          .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr max-content 50px;
+            grid-template-rows: min-content min-content min-content min-content min-content min-content;
+            grid-template-areas:
+              'h1   h1   h1   h1   .'
+              'c1_1 c2_1 c3_1 c4_1 f'
+              'c1_2 c2_2 c3_2 c4_2 f'
+              'h2   h2   h2   h2   f'
+              'd1_1 d2_1 d3_1 d4_1 f'
+              'd1_2 d2_2 d3_2 d4_2 .';
+            padding: 0 var(--padding);
+          }
+          .quote {
+            position: relative;
+            margin: 120px 0 60px;
+            line-height: 30px;
+            font-size: 25px;
+            font-weight: 500;
+            color: #2d2d34;
+
+            &.second {
+              margin-top: 160px;
+            }
+          }
+          :global(.quote-icon) {
+            position: absolute;
+            top: -55px;
+            left: 0;
+          }
+        `}</style>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className='container' ref={containerRef}>
+        <div className='wrapper'>
+          <div className='title'>
+            <SectionTitle>
+              Wie funktioniert das <br /> für Ihre Kunden
+            </SectionTitle>
+          </div>
+          {content}
         </div>
       </div>
-    </div>
-    <style jsx>{`
-      .container {
-      }
-      .wrapper {
-        max-width: 1440px;
-        padding: 106px 60px 90px;
-        margin: auto;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr max-content 50px;
-        grid-template-rows: min-content min-content min-content min-content min-content min-content;
-        grid-template-areas:
-          'h1   h1   h1   h1   .'
-          'c1_1 c2_1 c3_1 c4_1 f'
-          'c1_2 c2_2 c3_2 c4_2 f'
-          'h2   h2   h2   h2   f'
-          'd1_1 d2_1 d3_1 d4_1 f'
-          'd1_2 d2_2 d3_2 d4_2 .';
-      }
-      .quote {
-        position: relative;
-        margin: 120px 0 60px;
-        line-height: 30px;
-        font-size: 25px;
-        font-weight: 500;
-        color: #2d2d34;
-        
-        &.second {
-          margin-top: 160px;
+      <style jsx>{`
+        .container {
         }
-      }
-      :global(.quote-icon) {
-        position: absolute;
-        top: -55px;
-        left: 0;
-        width: 39px;
-        height: 35px;
-      }
-    `}</style>
-  </>
-);
+        .wrapper {
+          max-width: 1440px;
+          padding: 50px 0;
+          margin: auto;
+
+          @media (min-width: 768px) {
+            padding: 106px 0 90px;
+          }
+        }
+        .title {
+          padding: 0 var(--padding);
+        }
+      `}</style>
+    </>
+  );
+};
 
 type ItemProps = {
   icon: string;
   text: string;
-  area: string;
+  area?: string;
   isLast?: boolean;
   isLastTop?: boolean;
+  longArrow?: boolean;
   red?: boolean;
 };
 
-const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}: ItemProps) => (
+const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false, longArrow = false}: ItemProps) => (
   <>
-    <div className='icon' style={{gridArea: `${area}_1`}}>
+    <div className='icon' style={area ? {gridArea: `${area}_1`} : undefined}>
       <span className={'circle' + (red ? ' red' : '')} />
-      <span className={'arrow' + (isLast ? '' : ' pike') + (red ? ' red' : '')} />
+      <span className={'arrow' + (isLast ? '' : ' pike') + (red ? ' red' : '') + (longArrow ? ' long' : '')} />
       <Icon name={icon} className='icon-pic' color={red ? '#10826d' : '#408043'} />
     </div>
-    <p className={'text' + (isLastTop ? ' last' : '')} style={{gridArea: `${area}_2`}}>
+    <p className={'text' + (isLastTop ? ' last' : '')} style={area ? {gridArea: `${area}_2`} : undefined}>
       {text}
     </p>
     <style jsx>{`
@@ -124,7 +289,7 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
         position: absolute;
         display: block;
         top: 32px;
-        left: 32px;
+        left: 64px;
         right: 0;
         height: 1px;
         background: #cae5cb;
@@ -135,6 +300,10 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
 
         &.pike {
           right: 40px;
+        }
+
+        &.long {
+          right: 10px;
         }
 
         &.pike::after {
@@ -158,8 +327,6 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
         left: -30px;
         width: 60px;
         height: 60px;
-        //background-repeat: no-repeat;
-        //background-position: center;
       }
       .text {
         max-width: 210px;
@@ -181,14 +348,7 @@ const FinalItem = () => (
   <>
     <div className='final'>
       <span className='top-arrow' />
-      <div className='badge'>
-        <span className='circle'>
-          <span className='icon' />
-        </span>
-        <p className='text'>
-          Der Kunde ist mit <br /> Ihrer ApothekE <br /> zufrieden
-        </p>
-      </div>
+      <FinalBadge complex />
       <span className='bottom-arrow' />
     </div>
     <style jsx>{`
@@ -231,11 +391,29 @@ const FinalItem = () => (
           border-bottom-color: #c6dfda;
         }
       }
+    `}</style>
+  </>
+);
+
+const FinalBadge = ({complex = false}: {complex?: boolean}) => (
+  <>
+    <div className={'badge' + (complex ? ' complex' : '')}>
+      <span className='circle'>
+        <span className='icon' />
+      </span>
+      <p className='text'>
+        Der Kunde ist mit <br /> Ihrer ApothekE <br /> zufrieden
+      </p>
+    </div>
+    <style jsx>{`
       .badge {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        margin-left: -100%;
+
+        &.complex {
+          align-items: center;
+          margin-left: -100%;
+        }
       }
       .circle {
         display: flex;
@@ -254,14 +432,18 @@ const FinalItem = () => (
         background: url('/icons/heart.png');
       }
       .text {
-        margin-top: 10px;
-        text-align: center;
+        margin-top: 44px;
         line-height: 21px;
         font-size: 16px;
         font-weight: 500;
         text-transform: uppercase;
-        white-space: nowrap;
         color: #2d2d34;
+
+        .complex {
+          margin-top: 10px;
+          text-align: center;
+          white-space: nowrap;
+        }
       }
     `}</style>
   </>

@@ -10,7 +10,7 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
   <>
     <div className='wrapper'>
       <div className={'message question' + (isActive ? ' active' : ' inactive')}>
-        <span className='message-avatar'>
+        <span className='message-avatar question'>
           <Icon name='question' width={25} height={23} />
         </span>
         <div className='message-bubble'>
@@ -21,7 +21,7 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
         <div className='message-bubble response'>
           <p className='message-text response'>{response}</p>
         </div>
-        <span className='message-avatar'>
+        <span className='message-avatar response'>
           <Icon name='response' width={26} height={38} />
         </span>
       </div>
@@ -31,19 +31,23 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0 120px;
+        padding: 0 20px;
 
         &.active {
           animation: raise 1s;
         }
+
+        @media (min-width: 768px) {
+          padding: 0 120px;
+        }
       }
 
       .message {
-        display: flex;
-        margin: 10px 0;
+        position: relative;
+        padding: 50px 0 0;
 
         &.response {
-          align-self: flex-end;
+          margin-top: 20px;
         }
 
         &.question.active {
@@ -52,6 +56,16 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
 
         &.response.active {
           animation: from-right 1s;
+        }
+
+        @media (min-width: 768px) {
+          display: flex;
+          padding: 0;
+          margin: 10px 0 !important;
+
+          &.response {
+            align-self: flex-end;
+          }
         }
       }
 
@@ -77,6 +91,9 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
       }
 
       .message-avatar {
+        position: absolute;
+        top: 0;
+        left: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -85,27 +102,42 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
         height: 68px;
         border-radius: 50%;
         background: #fff;
+        box-shadow: 0 24px 30px rgba(0, 0, 0, 0.15);
+        z-index: 1;
+
+        &.response {
+          left: unset;
+          right: 10px;
+        }
+
+        @media (min-width: 768px) {
+          position: unset;
+        }
       }
       .message-bubble {
         position: relative;
-        width: 566px;
-        padding: 35px 50px 40px;
-        margin: 0 60px;
+        padding: 20px 15px 20px 20px;
         border-radius: 6px;
         background: #fff;
         box-shadow: 0 44px 70px rgba(0, 0, 0, 0.15);
 
-        &::after {
-          position: absolute;
-          display: block;
-          top: 30%;
-          left: -20px;
-          content: '';
-          width: 30px;
-          height: 30px;
-          margin-top: -15px;
-          border-bottom: 15px solid #fff;
-          border-radius: 0 0 0 15px;
+        @media (min-width: 768px) {
+          width: 566px;
+          padding: 35px 50px 40px;
+          margin: 0 60px;
+
+          &::after {
+            position: absolute;
+            display: block;
+            top: 30%;
+            left: -20px;
+            content: '';
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+            border-bottom: 15px solid #fff;
+            border-radius: 0 0 0 15px;
+          }
         }
 
         &.response::after {

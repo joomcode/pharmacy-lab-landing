@@ -26,33 +26,51 @@ export const Phone = ({screenId, opacity}: Props) => (
         position: absolute;
         top: 50%;
         left: 47%;
-        width: 414px;
-        height: 414px;
-        margin: -200px 0 0 -200px;
+        width: 207px;
+        height: 207px;
+        margin: -100px 0 0 -100px;
         border-radius: 50%;
         background: #5bb75f;
+
+        @media (min-width: 768px) {
+          width: 414px;
+          height: 414px;
+          margin: -200px 0 0 -200px;
+        }
       }
       .screen-background {
         position: absolute;
-        top: 45px;
-        left: 16px;
-        right: 16px;
-        bottom: 45px;
+        top: 7.84%;
+        left: 6.5%;
+        right: 6.5%;
+        bottom: 7.84%;
         background: #fff;
       }
       .screen {
         position: absolute;
-        top: 52px;
-        left: 21px;
-        width: 236px;
-        height: 470px;
+        top: 26px;
+        left: 10px;
+        width: 118px;
+        height: 235px;
+
+        @media (min-width: 768px) {
+          top: 52px;
+          left: 21px;
+          width: 236px;
+          height: 470px;
+        }
       }
       .phone {
         position: relative;
-        width: 278px;
-        height: 574px;
+        width: 139px;
+        height: 287px;
         background: url('/phone.png') no-repeat;
-        background-size: 278px 574px;
+        background-size: contain;
+
+        @media (min-width: 768px) {
+          width: 278px;
+          height: 574px;
+        }
       }
     `}</style>
   </>

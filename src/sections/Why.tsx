@@ -41,29 +41,52 @@ export const Why = () => (
         position: relative;
         max-width: 1440px;
         margin: auto;
-        padding: 90px 60px 130px;
+        padding: 90px var(--padding) 60px;
+
+        @media (min-width: 768px) {
+          padding-bottom: 130px;
+        }
       }
       .grid {
-        display: grid;
-        margin-top: 100px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 40px;
+        margin-top: 40px;
+
+        @media (min-width: 768px) {
+          display: grid;
+          margin-top: 100px;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-gap: 40px;
+        }
       }
       .item {
-        padding-bottom: 50px;
+        padding-bottom: 40px;
         border-bottom: 3px solid #5bb75f;
+
+        @media (min-width: 768px) {
+          padding-bottom: 50px;
+        }
       }
       .item-number {
+        display: block;
+        margin-top: 20px;
         line-height: 70px;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 500;
         color: #5bb75f;
+
+        @media (min-width: 768px) {
+          margin: 0;
+          font-size: 50px;
+        }
       }
       .item-text {
         line-height: 24px;
-        font-size: 20px;
+        font-size: 16px;
         color: #f9f9f9;
         opacity: 0.8;
+
+        @media (min-width: 768px) {
+          font-size: 20px;
+        }
       }
     `}</style>
   </>

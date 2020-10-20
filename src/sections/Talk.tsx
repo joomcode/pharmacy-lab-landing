@@ -34,9 +34,11 @@ export const Talk = () => {
     <>
       <div className='container'>
         <div className='wrapper'>
-          <SectionTitle dotColor='#fff' color='#fff'>
-            Wir hören Ihren <br /> Kunden zu
-          </SectionTitle>
+          <div className='title-wrapper'>
+            <SectionTitle dotColor='#fff' color='#fff'>
+              Wir hören Ihren <br /> Kunden zu
+            </SectionTitle>
+          </div>
           <div className='chat-gallery'>
             <div className='dialogs'>
               {dialogs.map(({question, response}, i) => (
@@ -84,8 +86,19 @@ export const Talk = () => {
         .wrapper {
           position: relative;
           max-width: 1440px;
-          padding: 86px 60px 80px;
+          padding: 60px 0 0;
           margin: auto;
+
+          @media (min-width: 768px) {
+            padding: 86px var(--padding) 80px;
+          }
+        }
+        .title-wrapper {
+          padding: 0 var(--padding);
+
+          @media (min-width: 768px) {
+            padding: 0;
+          }
         }
         .chat-gallery {
           position: relative;
@@ -94,22 +107,29 @@ export const Talk = () => {
           align-items: center;
           width: 100%;
           padding: 0;
-          margin: 80px 0 0;
+
+          @media (min-width: 768px) {
+            margin: 80px 0 0;
+          }
         }
         .controls {
-          position: absolute;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1;
-          pointer-events: none;
+          display: none;
 
-          & > :global(*) {
-            pointer-events: initial;
+          @media (min-width: 768px) {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+
+            & > :global(*) {
+              pointer-events: initial;
+            }
           }
         }
         .controls-button {
@@ -126,9 +146,13 @@ export const Talk = () => {
           display: flex;
           align-items: center;
           width: 100%;
-          padding: 40px 0 120px;
-          margin-bottom: -20px;
+          padding: 0 0 110px;
           overflow: hidden;
+
+          @media (min-width: 768px) {
+            padding: 40px 0 120px;
+            margin-bottom: -20px;
+          }
         }
         .dialog-wrapper {
           width: 100%;
@@ -146,8 +170,14 @@ export const Talk = () => {
           }
         }
         .slider-wrapper {
-          position: relative;
+          position: absolute;
+          bottom: 40px;
           z-index: 1;
+
+          @media (min-width: 768px) {
+            position: relative;
+            margin: 0;
+          }
         }
 
         @keyframes hidding {

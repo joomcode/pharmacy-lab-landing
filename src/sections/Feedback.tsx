@@ -35,41 +35,59 @@ export const Feedback = () => {
       </div>
       <style jsx>{`
         .wrapper {
-          display: flex;
           max-width: 1440px;
           margin: auto;
-          padding: 76px 60px 0;
+          padding: 50px 0 0;
+
+          @media (min-width: 768px) {
+            display: flex;
+            padding-top: 76px;
+          }
         }
         .text {
-          margin-top: 60px;
+          margin: 60px 0 20px;
           line-height: 30px;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 500;
           color: #2d2d34;
+
+          @media (min-width: 768px) {
+            margin-bottom: 0;
+            font-size: 20px;
+          }
         }
         .left {
-          flex-grow: 1;
-          flex-basis: 120px;
-          margin-right: 40px;
-          border-bottom: 1px solid #ccc;
+          padding: 0 var(--padding);
+
+          @media (min-width: 768px) {
+            flex-basis: 120px;
+            flex-grow: 1;
+            padding: 0;
+            margin-right: 40px;
+            border-bottom: 1px solid #ccc;
+          }
         }
         .form {
           display: flex;
+          flex-direction: column;
           flex-grow: 1;
           flex-basis: 100px;
-          flex-direction: column;
           max-width: 640px;
           min-width: 320px;
-          padding: 80px 73px 70px;
-          margin-top: -120px;
+          padding: 24px 20px;
           border-radius: 6px;
           background: #fff;
           box-shadow: 0 30px 84px rgba(0, 0, 0, 0.05);
+
+          @media (min-width: 768px) {
+            padding: 80px 73px 70px;
+            margin-top: -120px;
+          }
         }
         .input {
           width: 100%;
           margin-bottom: 20px;
-          padding: 20px 30px;
+          padding: 20px;
           background: #f3f3f3;
           border: 1px solid #cccccc;
           border-radius: 4px;
@@ -77,6 +95,10 @@ export const Feedback = () => {
           &.textarea {
             min-height: 160px;
             resize: vertical;
+          }
+
+          @media (min-width: 768px) {
+            padding: 20px 30px;
           }
         }
         .send-button {

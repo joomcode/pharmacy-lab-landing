@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {Phone} from '../components/Phone';
 import {SectionTitle} from '../components/SectionTitle';
+import {HorizontalSlider} from '../components/HorizontalSlider';
 
 const screens = [
   {
@@ -32,8 +33,14 @@ const screens = [
 export const Gallery = () => {
   const [opacity, setOpacity] = useState(1);
   const [screenIndex, setScreenIndex] = useState(0);
+  const [isPhoneMode, setPhoneMode] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
+    function onResize() {
+      setPhoneMode((containerRef.current as any).offsetWidth < 768);
+    }
+
     function onScroll() {
       const center = window.innerHeight / 2;
       const items = document.querySelectorAll('.js-text-item');
@@ -47,47 +54,53 @@ export const Gallery = () => {
         });
       });
 
-      const deltas = [];
+      if (!isPhoneMode) {
+        const deltas = [];
 
-      for (let i = 0; i < offsets.length - 1; i++) {
-        deltas.push({
-          index: i,
-          delta: -offsets[i].bottom - offsets[i + 1].top,
-          top: offsets[i + 1].top,
-        });
-      }
-
-      deltas.sort((a, b) => Math.abs(a.delta) - Math.abs(b.delta));
-
-      const head = deltas[0];
-
-      if (head.top < 150) {
-        setOpacity(Math.max(0, 1 - Math.min(1, (head.top + 50) / 200)));
-      } else if (head.delta > -300) {
-        const opacity = Math.min(1, -head.delta / 200);
-
-        setOpacity(Math.max(0, opacity));
-
-        if (opacity < 0) {
-          setScreenIndex(head.index + 1);
-        } else {
-          setScreenIndex(head.index);
+        for (let i = 0; i < offsets.length - 1; i++) {
+          deltas.push({
+            index: i,
+            delta: -offsets[i].bottom - offsets[i + 1].top,
+            top: offsets[i + 1].top,
+          });
         }
-      } else {
-        setOpacity(1);
+
+        deltas.sort((a, b) => Math.abs(a.delta) - Math.abs(b.delta));
+
+        const head = deltas[0];
+
+        if (head.top < 150) {
+          setOpacity(Math.max(0, 1 - Math.min(1, (head.top + 50) / 200)));
+        } else if (head.delta > -300) {
+          const opacity = Math.min(1, -head.delta / 200);
+
+          setOpacity(Math.max(0, opacity));
+
+          if (opacity < 0) {
+            setScreenIndex(head.index + 1);
+          } else {
+            setScreenIndex(head.index);
+          }
+        } else {
+          setOpacity(1);
+        }
       }
     }
 
+    onResize();
+
     window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onResize);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
     };
-  }, []);
+  }, [isPhoneMode]);
 
   return (
     <>
-      <div className='container'>
+      <div className='container' ref={containerRef}>
         <div className='wrapper'>
           <div className='title-wrapper'>
             <div className='title'>
@@ -97,10 +110,19 @@ export const Gallery = () => {
             </div>
           </div>
           <div className='phone'>
-            <Phone screenId={screens[screenIndex].screenId} opacity={opacity} />
+            <Phone screenId={screens[screenIndex].screenId} opacity={isPhoneMode ? 1 : opacity} />
           </div>
           <div className='texts-wrapper'>
-            <div className='texts'>
+            <div
+              className='texts'
+              style={
+                isPhoneMode
+                  ? ({
+                      '--shift': `-${screenIndex * 100}%`,
+                    } as any)
+                  : undefined
+              }
+            >
               {screens.map(({title, text}, i) => (
                 <div key={title} className='item js-text-item' data-item={i}>
                   <h2 className='item-title'>{title}</h2>
@@ -109,6 +131,11 @@ export const Gallery = () => {
               ))}
             </div>
           </div>
+          {isPhoneMode ? (
+            <div className='slider'>
+              <HorizontalSlider count={screens.length} activeIndex={screenIndex} dark onClick={setScreenIndex} />
+            </div>
+          ) : null}
         </div>
       </div>
       <style jsx>{`
@@ -117,40 +144,82 @@ export const Gallery = () => {
         }
         .wrapper {
           display: flex;
+          flex-direction: column;
           max-width: 1440px;
-          padding: 0 60px 100px;
+          padding: 0 var(--padding) 40px;
           margin: 0 auto;
+
+          @media (min-width: 768px) {
+            flex-direction: initial;
+            padding-bottom: 100px;
+          }
         }
         .title-wrapper {
           flex-basis: 100px;
           flex-grow: 1;
-          margin-top: 86px;
+          margin-top: 50px;
+
+          @media (min-width: 768px) {
+            margin-top: 86px;
+          }
         }
         .title {
-          position: sticky;
-          top: 60px;
-          margin-bottom: 200px;
+          @media (min-width: 768px) {
+            position: sticky;
+            top: 60px;
+            margin-bottom: 200px;
+          }
         }
         .phone {
-          position: sticky;
-          top: 0;
           display: flex;
-          height: 100vh;
+
+          @media (min-width: 768px) {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+          }
         }
         .texts-wrapper {
-          display: flex;
-          justify-content: flex-end;
-          flex-basis: 100px;
-          flex-grow: 1;
+          margin: 40px calc(-1 * var(--padding)) 0;
+          overflow: hidden;
+
+          @media (min-width: 768px) {
+            display: flex;
+            justify-content: flex-end;
+            flex-basis: 100px;
+            flex-grow: 1;
+            margin: unset;
+            overflow: unset;
+          }
         }
         .texts {
-          max-width: 315px;
+          display: flex;
+          width: 100%;
+          transform: translate(var(--shift), 0);
+          transition: transform 0.4s;
+
+          @media (min-width: 768px) {
+            display: block;
+            width: unset;
+            max-width: 315px;
+            transform: unset;
+            transition: unset;
+          }
         }
         .item {
-          margin: 250px 0 180px;
+          flex-shrink: 0;
+          width: 100%;
+          padding: 0 var(--padding);
+          margin: 0;
 
-          &:not(:first-of-type) {
-            margin-top: 400px;
+          @media (min-width: 768px) {
+            width: unset;
+            padding: unset;
+            margin: 250px 0 180px;
+
+            &:not(:first-of-type) {
+              margin-top: 400px;
+            }
           }
         }
         .item-title {
@@ -165,6 +234,11 @@ export const Gallery = () => {
           font-size: 18px;
           color: #2d2d34;
           opacity: 0.8;
+        }
+        .slider {
+          display: flex;
+          justify-content: center;
+          margin-top: 30px;
         }
       `}</style>
     </>

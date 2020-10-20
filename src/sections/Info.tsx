@@ -27,38 +27,67 @@ export const Info = () => (
       .wrapper {
         position: relative;
         display: flex;
+        flex-direction: column;
         max-width: 1440px;
         margin: auto;
-        padding: 90px 60px;
+        padding: 50px var(--padding);
+
+        @media (min-width: 768px) {
+          flex-direction: unset;
+          padding-top: 90px;
+          padding-bottom: 90px;
+        }
       }
       .column {
         flex-basis: 100px;
         flex-grow: 1;
-        margin: 0 20px;
+
+        @media (min-width: 768px) {
+          margin: 0 20px;
+        }
       }
       .title {
-        line-height: 50px;
-        font-size: 40px;
+        line-height: 39px;
+        font-size: 30px;
         font-weight: 500;
         color: #2d2d34;
+
+        @media (min-width: 768px) {
+          line-height: 50px;
+          font-size: 40px;
+        }
       }
       .sub-title {
+        margin-top: 30px;
         line-height: 30px;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
         color: #2d2d34;
+
+        @media (min-width: 768px) {
+          margin: 0;
+          font-size: 20px;
+        }
       }
       .list {
         padding: 0 0 0 26px;
-        margin: 40px 0 0;
+        margin: 20px 0 0;
         list-style: none;
+
+        @media (min-width: 768px) {
+          margin-top: 40px;
+        }
       }
       .item {
         position: relative;
         line-height: 24px;
-        font-size: 18px;
+        font-size: 16px;
         color: #2d2d34;
         opacity: 0.8;
+
+        @media (min-width: 768px) {
+          font-size: 18px;
+        }
 
         &:not(:last-of-type) {
           margin-bottom: 22px;

@@ -3,10 +3,11 @@ import {useCallback} from 'react';
 type Props = {
   count: number;
   activeIndex?: number;
+  dark?: boolean;
   onClick: (index: number) => void;
 };
 
-export const HorizontalSlider = ({count, activeIndex = 0, onClick}: Props) => {
+export const HorizontalSlider = ({count, activeIndex = 0, dark = false, onClick}: Props) => {
   const onButtonClick = useCallback(
     (e) => {
       onClick(Number(e.currentTarget.dataset.index));
@@ -20,7 +21,7 @@ export const HorizontalSlider = ({count, activeIndex = 0, onClick}: Props) => {
 
   return (
     <>
-      <div className='wrapper'>
+      <div className={'wrapper' + (dark ? ' dark' : '')}>
         {Array.from({length: count}).map((_, i) => (
           <button
             key={i}
@@ -59,6 +60,10 @@ export const HorizontalSlider = ({count, activeIndex = 0, onClick}: Props) => {
           &.active {
             border: none;
             background: #fff;
+
+            .dark & {
+              background: #5bb55f;
+            }
           }
         }
       `}</style>

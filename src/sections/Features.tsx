@@ -51,33 +51,52 @@ export const Features = () => {
           position: relative;
           max-width: 1440px;
           margin: auto;
-          padding: 112px 60px 100px 60px;
+          padding: 112px var(--padding) 100px;
         }
         .grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-gap: 55px;
+          @media (min-width: 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 55px;
+          }
         }
         .feature {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          margin-bottom: 40px;
+
+          &:not(:last-of-type) {
+            margin-bottom: 70px;
+          }
+
+          @media (min-width: 768px) {
+            margin: 0 !important;
+          }
         }
         .feature-icon-wrapper {
           margin-bottom: 22px;
         }
         .feature-title {
           font-weight: 500;
-          font-size: 20px;
+          font-size: 18px;
           line-height: 30px;
           color: #2d2d34;
+
+          @media (min-width: 768px) {
+            font-size: 20px;
+          }
         }
         .feature-text {
           margin-top: 16px;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 24px;
           color: #2d2d34;
           opacity: 0.8;
+
+          @media (min-width: 768px) {
+            font-size: 18px;
+          }
         }
       `}</style>
     </>
