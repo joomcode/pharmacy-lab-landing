@@ -17,10 +17,12 @@ export const Layout = ({title, children}: Props) => (
     </Head>
     {children}
     <style jsx global>{`
-      html,
-      body {
-        width: 100%;
-        overflow-x: hidden;
+      @media (max-width: 767px) {
+        html,
+        body {
+          width: 100%;
+          overflow-x: hidden;
+        }
       }
 
       body,

@@ -41,7 +41,7 @@ export const Feedback = () => {
 
           @media (min-width: 768px) {
             display: flex;
-            padding-top: 76px;
+            padding: 76px var(--padding) 0;
           }
         }
         .text {
