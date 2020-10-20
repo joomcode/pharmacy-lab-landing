@@ -44,6 +44,14 @@ export const Welcome = () => (
         @media (min-width: 768px) {
           background-position: center top;
         }
+
+        br {
+          display: none;
+
+          @media (min-width: 930px) {
+            display: initial;
+          }
+        }
       }
       .wrapper {
         position: relative;
@@ -69,6 +77,11 @@ export const Welcome = () => (
         color: #fff;
 
         @media (min-width: 768px) {
+          line-height: 60px;
+          font-size: 50px;
+        }
+
+        @media (min-width: 930px) {
           line-height: 78px;
           font-size: 60px;
         }
