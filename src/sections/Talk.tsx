@@ -106,6 +106,11 @@ export const Talk = () => {
           right: 0;
           bottom: 0;
           z-index: 1;
+          pointer-events: none;
+
+          & > :global(*) {
+            pointer-events: initial;
+          }
         }
         .controls-button {
           padding: 0;

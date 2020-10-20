@@ -24,7 +24,7 @@ export const Footer = () => (
         <div className='last-line'>
           <span className='copyright'>© 2020 SIA Joom (Latvia)</span>
           <a href='#' className='policy-link'>
-            Политика конфиденциальности
+            Datenschutzerklärung
           </a>
         </div>
       </div>
