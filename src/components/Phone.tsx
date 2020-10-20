@@ -9,9 +9,11 @@ export const Phone = ({screenId, opacity}: Props) => (
       <div className='circle' />
       <div className='screen-background' />
       <img
+        alt={`screen ${screenId}`}
         className='screen'
         src={`/screens/${screenId}.png`}
-        srcSet={`/screens/${screenId}.png, /screens/${screenId}@2x.png 2x, /screens/${screenId}@3x.png 3x`}
+        srcSet={`/screens/${screenId}.png 236w, /screens/${screenId}@2x.png 472w, /screens/${screenId}@3x.png 708w`}
+        sizes='(min-width: 768px) 236px, 118px'
         style={{opacity}}
       />
       <div className='phone' />
