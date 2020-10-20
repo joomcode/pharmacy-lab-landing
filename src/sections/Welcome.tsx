@@ -4,7 +4,7 @@ export const Welcome = () => (
   <div className='main'>
     <div className='wrapper'>
       <header>
-        <Logo />
+        <Logo dark whiteText />
       </header>
       <div className='main-content'>
         <h1 className='main-title'>
@@ -23,19 +23,32 @@ export const Welcome = () => (
     </div>
     <style jsx>{`
       .main {
-        background: url('/main.jpg') no-repeat;
+        position: relative;
+        background: url('/cover_2.jpg') no-repeat top center;
         background-size: cover;
+
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          content: '';
+          background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+        }
       }
       .wrapper {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         max-width: 1440px;
         padding: 36px 60px 0 60px;
         margin: 0 auto;
+        z-index: 1;
       }
       .main-content {
-        margin: 184px 0 150px;
+        margin: 22% 0 80px;
 
         @media (max-width: 768px) {
           br {

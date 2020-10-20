@@ -2,28 +2,24 @@ import {Icon} from '../components/Icon';
 
 const features = [
   {
-    icon: 'prescription',
-    color: '#fdf1da',
+    icon: 'feature_1',
     title: 'Integration von E-Rezepten',
     text:
       'Sobald die Gesetzgebung erneuert wird, können Ihre Kunden über unseren Service Rx-Arzneimittel mit einem Mausklick bestellen',
   },
   {
-    icon: 'computer',
-    color: '#eaf3f2',
+    icon: 'feature_2',
     title: 'Einfache Integration von Apotheken',
     text: 'Wir übernehmen die Integration Ihrer Apotheke: Sie benötigen nur minimal Aufwand und Zeit',
   },
   {
-    icon: 'chat',
-    color: '#d9ebf7',
+    icon: 'feature_3',
     title: 'Bedienerfreundliche Schnittstelle für Ihre Kunden',
     text:
       'Nach einer Umfrage unter Apothekenkunden wissen wir genau, womit diese beim Online-Kauf von Medikamenten unzufrieden sind. J-Pharm hat diese Mängel nicht',
   },
   {
-    icon: 'car',
-    color: '#e4ddf1',
+    icon: 'feature_4',
     title: 'Lieferservice',
     text: 'Liefern Sie selbst oder nutzen Sie unseren Lieferservice',
   },
@@ -35,10 +31,10 @@ export const Features = () => {
       <div className='container'>
         <div className='wrapper'>
           <div className='grid'>
-            {features.map(({icon, color, title, text}) => (
+            {features.map(({icon, title, text}) => (
               <div key={title} className='feature'>
-                <span className='feature-icon-wrapper' style={{background: color}}>
-                  <Icon name={icon} width={45} height={45} />
+                <span className='feature-icon-wrapper'>
+                  <Icon name={icon} width={100} height={100} />
                 </span>
                 <h2 className='feature-title'>{title}</h2>
                 <p className='feature-text'>{text}</p>
@@ -68,13 +64,7 @@ export const Features = () => {
           align-items: flex-start;
         }
         .feature-icon-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 80px;
-          height: 80px;
-          margin-bottom: 34px;
-          border-radius: 50%;
+          margin-bottom: 22px;
         }
         .feature-title {
           font-weight: 500;

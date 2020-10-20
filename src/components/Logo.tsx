@@ -3,14 +3,15 @@ import {Icon} from './Icon';
 type Props = {
   className?: string;
   dark?: boolean;
+  whiteText?: boolean;
 };
 
-export const Logo = ({className, dark = false}: Props) => (
+export const Logo = ({className, dark = false, whiteText = false}: Props) => (
   <>
     <div className={'logo' + (dark ? ' dark' : '') + ` ${className}`}>
       <Icon name='logo' width={109} height={20} color={dark ? '#000' : '#fff'} />
       <span className='split' />
-      <span className='logo-text'>Pharm Solutions</span>
+      <span className={'logo-text' + (whiteText || !dark ? ' white' : '')}>Pharm Solutions</span>
     </div>
     <style jsx>{`
       .logo {
@@ -34,10 +35,10 @@ export const Logo = ({className, dark = false}: Props) => (
         font-size: 12px;
         font-weight: 500;
         text-transform: uppercase;
-        color: #fff;
+        color: #2d2d34;
 
-        .dark & {
-          color: #2d2d34;
+        &.white {
+          color: #fff;
         }
       }
     `}</style>

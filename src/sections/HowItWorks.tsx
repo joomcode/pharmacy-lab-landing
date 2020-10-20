@@ -10,7 +10,7 @@ export const HowItWorks = () => (
         </SectionTitle>
         <div className='grid'>
           <div className='quote' style={{gridArea: 'h1'}}>
-            <Icon name='quote' className='quote-icon' color='#5bb75f' />
+            <Icon name='quote' className='quote-icon' color='#65b869' />
             Ich will möglichst bequem ein <br /> OTC-Arzneimittel kaufen
           </div>
           <Item icon='search' text='Der Kunde sucht nach dem Medikament' area='c1' />
@@ -24,15 +24,15 @@ export const HowItWorks = () => (
             isLastTop
           />
           <FinalItem />
-          <div className='quote' style={{gridArea: 'h2'}}>
-            <Icon name='quote' className='quote-icon' color='#ff6c1a' />
+          <div className='quote second' style={{gridArea: 'h2'}}>
+            <Icon name='quote' className='quote-icon' color='#94c5bc' />
             Ich will ein Rx-Arzneimittel mit einem <br /> Mausklick kaufen
           </div>
           <Item icon='web' text='Der Kunde geht auf die Seite seiner Lieblingsapotheke' area='d1' red />
           <Item icon='click' text='Er sendet das E-Rezept mit einem Mausklick' area='d2' red />
           <Item icon='consult' text='Der Apotheker findet das notwendige Medikament' area='d3' red />
           <Item
-            icon='take'
+            icon='delivery'
             text='Wir reservieren das Medikament oder bereiten es für die Lieferung vor'
             area='d4'
             isLast
@@ -67,6 +67,11 @@ export const HowItWorks = () => (
         line-height: 30px;
         font-size: 25px;
         font-weight: 500;
+        color: #2d2d34;
+        
+        &.second {
+          margin-top: 160px;
+        }
       }
       :global(.quote-icon) {
         position: absolute;
@@ -93,7 +98,7 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
     <div className='icon' style={{gridArea: `${area}_1`}}>
       <span className={'circle' + (red ? ' red' : '')} />
       <span className={'arrow' + (isLast ? '' : ' pike') + (red ? ' red' : '')} />
-      <Icon name={icon} className='icon-pic' />
+      <Icon name={icon} className='icon-pic' color={red ? '#10826d' : '#408043'} />
     </div>
     <p className={'text' + (isLastTop ? ' last' : '')} style={{gridArea: `${area}_2`}}>
       {text}
@@ -109,9 +114,10 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
         height: 64px;
         border-radius: 50%;
         background: #5bb75f;
+        background: rgba(91, 183, 95, 0.3);
 
         &.red {
-          background: #ff6c19;
+          background: rgba(148, 197, 188, 0.5);
         }
       }
       .arrow {
@@ -121,10 +127,10 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
         left: 32px;
         right: 0;
         height: 1px;
-        background: #5bb75f;
+        background: #cae5cb;
 
         &.red {
-          background: #ff6c19;
+          background: #c6dfda;
         }
 
         &.pike {
@@ -139,11 +145,11 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false}
           width: 6px;
           height: 6px;
           border: 6px solid transparent;
-          border-left-color: #5bb75f;
+          border-left-color: #cae5cb;
         }
 
         &.red::after {
-          border-left-color: #ff6c19;
+          border-left-color: #c6dfda;
         }
       }
       :global(.icon-pic) {
@@ -195,7 +201,7 @@ const FinalItem = () => (
         position: relative;
         flex-grow: 1;
         margin: 32px 0;
-        border-left: 1px solid #5bb75f;
+        border-left: 1px solid #cae5cb;
 
         &::after {
           position: absolute;
@@ -205,14 +211,14 @@ const FinalItem = () => (
           width: 6px;
           height: 6px;
           border: 6px solid transparent;
-          border-top-color: #5bb75f;
+          border-top-color: #cae5cb;
         }
       }
       .bottom-arrow {
         position: relative;
         flex-grow: 1;
         margin: 32px 0 31px;
-        border-left: 1px solid #ff6c19;
+        border-left: 1px solid #c6dfda;
 
         &::after {
           position: absolute;
@@ -222,7 +228,7 @@ const FinalItem = () => (
           width: 6px;
           height: 6px;
           border: 6px solid transparent;
-          border-bottom-color: #ff6c19;
+          border-bottom-color: #c6dfda;
         }
       }
       .badge {
@@ -255,6 +261,7 @@ const FinalItem = () => (
         font-weight: 500;
         text-transform: uppercase;
         white-space: nowrap;
+        color: #2d2d34;
       }
     `}</style>
   </>
