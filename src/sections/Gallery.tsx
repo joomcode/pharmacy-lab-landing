@@ -123,8 +123,8 @@ export const Gallery = () => {
                   : undefined
               }
             >
-              {screens.map(({title, text}, i) => (
-                <div key={title} className='item js-text-item' data-item={i}>
+              {screens.map(({title, text}) => (
+                <div key={title} className='item js-text-item'>
                   <h2 className='item-title'>{title}</h2>
                   <p className='item-text'>{text}</p>
                 </div>
@@ -207,6 +207,7 @@ export const Gallery = () => {
           }
         }
         .item {
+          position: relative;
           flex-shrink: 0;
           width: 100%;
           padding: 0 var(--padding);

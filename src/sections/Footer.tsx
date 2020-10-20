@@ -54,7 +54,7 @@ export const Footer = () => (
           margin-top: 10px;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1100px) {
           display: flex;
           align-items: flex-start;
         }
@@ -64,8 +64,11 @@ export const Footer = () => (
 
         @media (min-width: 768px) {
           display: flex;
+        }
+
+        @media (min-width: 1100px) {
           margin-top: 0;
-          margin-left: 140px;
+          margin-left: 10%;
         }
       }
       .contact {

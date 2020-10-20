@@ -75,6 +75,7 @@ export const Feedback = () => {
           max-width: 640px;
           min-width: 320px;
           padding: 24px 20px;
+          margin: 0 auto;
           border-radius: 6px;
           background: #fff;
           box-shadow: 0 30px 84px rgba(0, 0, 0, 0.05);

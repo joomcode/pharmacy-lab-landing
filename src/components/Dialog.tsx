@@ -37,7 +37,7 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
           animation: raise 1s;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 930px) {
           padding: 0 120px;
         }
       }
@@ -58,7 +58,7 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
           animation: from-right 1s;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 930px) {
           display: flex;
           padding: 0;
           margin: 10px 0 !important;
@@ -92,6 +92,7 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
 
       .message-avatar {
         position: absolute;
+        flex-shrink: 0;
         top: 0;
         left: 10px;
         display: flex;
@@ -110,7 +111,7 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
           right: 10px;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 930px) {
           position: unset;
         }
       }
@@ -121,8 +122,8 @@ export const Dialog = ({question, response, isActive = false}: Props) => (
         background: #fff;
         box-shadow: 0 44px 70px rgba(0, 0, 0, 0.15);
 
-        @media (min-width: 768px) {
-          width: 566px;
+        @media (min-width: 930px) {
+          max-width: 566px;
           padding: 35px 50px 40px;
           margin: 0 60px;
 

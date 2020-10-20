@@ -90,15 +90,11 @@ export const Talk = () => {
           margin: auto;
 
           @media (min-width: 768px) {
-            padding: 86px var(--padding) 80px;
+            padding: 86px 0 80px;
           }
         }
         .title-wrapper {
           padding: 0 var(--padding);
-
-          @media (min-width: 768px) {
-            padding: 0;
-          }
         }
         .chat-gallery {
           position: relative;
@@ -108,14 +104,14 @@ export const Talk = () => {
           width: 100%;
           padding: 0;
 
-          @media (min-width: 768px) {
+          @media (min-width: 1130px) {
             margin: 80px 0 0;
           }
         }
         .controls {
           display: none;
 
-          @media (min-width: 768px) {
+          @media (min-width: 1130px) {
             position: absolute;
             display: flex;
             align-items: center;
@@ -124,6 +120,7 @@ export const Talk = () => {
             left: 0;
             right: 0;
             bottom: 0;
+            padding: 0 var(--padding);
             z-index: 1;
             pointer-events: none;
 
@@ -150,7 +147,7 @@ export const Talk = () => {
           overflow: hidden;
 
           @media (min-width: 768px) {
-            padding: 40px 0 120px;
+            padding: 40px var(--padding) 120px;
             margin-bottom: -20px;
           }
         }

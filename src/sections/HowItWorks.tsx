@@ -331,6 +331,7 @@ const Item = ({icon, text, area, isLast = false, isLastTop = false, red = false,
       .text {
         max-width: 210px;
         margin-top: 44px;
+        margin-right: 10px;
         line-height: 25px;
         font-size: 20px;
         color: #2d2d34;
