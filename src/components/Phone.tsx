@@ -8,12 +8,11 @@ export const Phone = ({screenId, opacity}: Props) => (
     <div className='wrapper'>
       <div className='circle' />
       <div className='screen-background' />
-      <div
+      <img
         className='screen'
-        style={{
-          opacity,
-          backgroundImage: `url('/screens/${screenId}.png')`,
-        }}
+        src={`/screens/${screenId}.png`}
+        srcSet={`/screens/${screenId}.png, /screens/${screenId}@2x.png 2x, /screens/${screenId}@3x.png 3x`}
+        style={{opacity}}
       />
       <div className='phone' />
     </div>
@@ -43,20 +42,17 @@ export const Phone = ({screenId, opacity}: Props) => (
       }
       .screen {
         position: absolute;
-        top: 50px;
-        left: 20px;
-        right: 20px;
-        bottom: 50px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+        top: 52px;
+        left: 21px;
+        width: 236px;
+        height: 470px;
       }
       .phone {
         position: relative;
-        width: 258px;
-        height: 554px;
+        width: 278px;
+        height: 574px;
         background: url('/phone.png') no-repeat;
-        background-size: 258px 554px;
+        background-size: 278px 574px;
       }
     `}</style>
   </>

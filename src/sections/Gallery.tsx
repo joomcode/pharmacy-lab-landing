@@ -4,25 +4,25 @@ import {SectionTitle} from '../components/SectionTitle';
 
 const screens = [
   {
-    screenId: '2',
+    screenId: '1',
     title: 'Einen effizienten Weg zur Gewinnung von neuen Kunden',
     text:
       'Wir investieren erheblich in Marketing und die Förderung Ihrer Bekanntheit. Dank unserem Service erfahren mehr Menschen von Ihrer Apotheke und werden zu Ihren Stammkunden',
   },
   {
-    screenId: '3',
+    screenId: '2',
     title: 'Aktuelle Preise für Medikamente in Ihrer Apotheke',
     text:
       'Wir zeigen Ihre Preise an und aktualisieren diese regelmäßig, damit die Kunden jederzeit Ihre günstigen Konditionen und Sonderangebote sehen',
   },
   {
-    screenId: '5',
+    screenId: '3',
     title: 'Beste Erreichbarkeit für Ihre Kunden',
     text:
       'Ihre Apotheker können die Kaufinteressenten beraten sowie via Chat, Push-Benachrichtigungen und individuellen Angebote immer mit Kunden in Kontakt bleiben',
   },
   {
-    screenId: '5',
+    screenId: '4',
     title: 'Persönliche Homepage Ihrer Apotheke in der App und auf der Webseite',
     text:
       'Sie brauchen keine eigene Webseite erstellen zu lassen, um im Blickfeld Ihrer Kunden zu stehen. Entwerfen Sie mit unseren einfachen Tools Ihre individuelle Homepage und nutzen Sie unseren Service - ohne Entwicklungsarbeiten',

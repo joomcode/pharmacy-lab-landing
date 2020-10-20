@@ -24,8 +24,12 @@ export const Welcome = () => (
     <style jsx>{`
       .main {
         position: relative;
-        background: url('/cover_2.jpg') no-repeat top center;
+        background: url('/cover.jpg') no-repeat top center;
         background-size: cover;
+
+        @media (min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+          background-image: url('/cover@2x.jpg');
+        }
 
         &::after {
           position: absolute;
