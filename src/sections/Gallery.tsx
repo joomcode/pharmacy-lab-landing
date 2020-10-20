@@ -151,7 +151,7 @@ export const Gallery = () => {
 
           @media (min-width: 768px) {
             flex-direction: initial;
-            padding-bottom: 100px;
+            padding-bottom: 0;
           }
         }
         .title-wrapper {
@@ -177,6 +177,7 @@ export const Gallery = () => {
             position: sticky;
             top: 0;
             height: 100vh;
+            min-height: 600px;
           }
         }
         .texts-wrapper {
@@ -220,6 +221,10 @@ export const Gallery = () => {
 
             &:not(:first-of-type) {
               margin-top: 400px;
+            }
+
+            &:last-of-type {
+              margin-bottom: calc(50vh - 140px);
             }
           }
         }

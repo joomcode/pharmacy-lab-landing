@@ -440,7 +440,7 @@ const FinalBadge = ({complex = false}: {complex?: boolean}) => (
         text-transform: uppercase;
         color: #2d2d34;
 
-        .complex {
+        .complex & {
           margin-top: 10px;
           text-align: center;
           white-space: nowrap;
