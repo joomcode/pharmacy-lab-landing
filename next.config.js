@@ -3,10 +3,11 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const cspRules = [
   "default-src 'self'",
-  "script-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data:",
+  "img-src 'self' data: https://www.google-analytics.com",
   "font-src 'self' https://fonts.gstatic.com",
+  "connect-src 'self' https://www.google-analytics.com",
 ].join('; ');
 
 module.exports = withCSS({
