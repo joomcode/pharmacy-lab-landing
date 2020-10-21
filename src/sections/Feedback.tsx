@@ -2,14 +2,58 @@ import {SectionTitle} from '../components/SectionTitle';
 import {FormEvent, useState} from 'react';
 
 export const Feedback = () => {
+  const [isSending, setIsSending] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [additional, setAdditional] = useState('');
 
+  const disable = isSending || isSent;
+
   function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    alert('submitting temporary not working TEST');
+    if (disable) {
+      return;
+    }
+
+    if (!name.trim() && !email.trim() && !additional.trim()) {
+      return;
+    }
+
+    setIsSending(true);
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        additional,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Request failed ${res.status} ${res.statusText}`);
+        }
+
+        return res.json();
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Invalid response');
+        }
+
+        setIsSending(false);
+        setIsSent(true);
+      })
+      .catch((error) => {
+        console.error('API error:', error);
+        alert('Something went wrong, please try again later');
+        setIsSending(false);
+      });
   }
 
   return (
@@ -23,15 +67,31 @@ export const Feedback = () => {
             </p>
           </div>
           <form className='form' id='contact' onSubmit={onSubmit}>
-            <input className='input' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
-            <input className='input' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input
+              className='input'
+              placeholder='Name'
+              value={name}
+              disabled={disable}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              className='input'
+              placeholder='Email'
+              value={email}
+              disabled={disable}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <textarea
               className='input textarea'
               placeholder='Ihre Nachricht'
               value={additional}
+              disabled={disable}
               onChange={(e) => setAdditional(e.target.value)}
             />
-            <button className='send-button'>Senden</button>
+            <button className='send-button' disabled={disable}>
+              Senden
+            </button>
+            {isSent ? <div className='thanks'>Danke für die Rückmeldung!</div> : null}
           </form>
         </div>
       </div>
@@ -70,6 +130,7 @@ export const Feedback = () => {
           }
         }
         .form {
+          position: relative;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
@@ -115,6 +176,21 @@ export const Feedback = () => {
           text-transform: uppercase;
           color: #fff;
           background: #5bb75f;
+        }
+        .thanks {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 5px;
+          left: 5px;
+          right: 5px;
+          bottom: 5px;
+          line-height: 34px;
+          font-size: 20px;
+          font-weight: 500;
+          color: #2d2d34;
+          background: #fff;
         }
       `}</style>
     </>
