@@ -16,7 +16,8 @@ export const Info = () => (
         </div>
         <div className='column'>
           <h3 className='sub-title'>
-            Wir möchten den lokalen Apotheken trotz alledem zu helfen, ein gut gehendes Geschäft zu entwickeln
+            Joom Pharm Solutions möchtet den lokalen Apotheken trotz alledem zu helfen, ein gut gehendes Geschäft zu
+            entwickeln
           </h3>
         </div>
       </div>

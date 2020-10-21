@@ -8,7 +8,7 @@ export const Welcome = () => (
       </header>
       <div className='main-content'>
         <h1 className='main-title'>
-          Die digitale Lösung für lokale <br /> Apotheken
+          Die digitale Lösung <br /> für lokale Apotheken
         </h1>
         <p className='main-sub-title'>
           Wir unterstützen Apotheken dabei, neue Kunden zu gewinnen – und <br /> Kunden dabei, schnell und bequem

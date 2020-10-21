@@ -18,7 +18,9 @@ export const Feedback = () => {
         <div className='wrapper'>
           <div className='left'>
             <SectionTitle>Kontaktformular</SectionTitle>
-            <p className='text'>Möchten Sie mit J-Pharmacy zusammenarbeiten? Geben Sie Ihre Kontaktdaten an</p>
+            <p className='text'>
+              Möchten Sie mit Joom Pharm Solutions zusammenarbeiten? Geben Sie Ihre Kontaktdaten an
+            </p>
           </div>
           <form className='form' id='contact' onSubmit={onSubmit}>
             <input className='input' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />

@@ -8,13 +8,13 @@ const screens = [
     screenId: '1',
     title: 'Einen effizienten Weg zur Gewinnung von neuen Kunden',
     text:
-      'Wir investieren erheblich in Marketing und die Förderung Ihrer Bekanntheit. Dank unserem Service erfahren mehr Menschen von Ihrer Apotheke und werden zu Ihren Stammkunden',
+      'Joom Pharm Solutions investiert erheblich in Marketing und die Förderung Ihrer Bekanntheit. Dank unserem Service erfahren mehr Menschen von Ihrer Apotheke und werden zu Ihren Stammkunden',
   },
   {
     screenId: '2',
     title: 'Aktuelle Preise für Medikamente in Ihrer Apotheke',
     text:
-      'Wir zeigen Ihre Preise an und aktualisieren diese regelmäßig, damit die Kunden jederzeit Ihre günstigen Konditionen und Sonderangebote sehen',
+      'Joom Pharm Solutions zeigt Ihre Preise an und aktualisieren diese regelmäßig, damit die Kunden jederzeit Ihre günstigen Konditionen und Sonderangebote sehen',
   },
   {
     screenId: '3',

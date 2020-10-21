@@ -2,7 +2,7 @@ import {SectionTitle} from '../components/SectionTitle';
 
 const texts = [
   {
-    text: 'ir übernehmen den gesamten Aufwand rund um die Integration Ihrer Apotheke zu unserem Service',
+    text: 'Wir übernehmen den gesamten Aufwand rund um die Integration Ihrer Apotheke zu unserem  Service',
   },
   {
     text: 'Wir wissen, wie wir neue Kunden für Sie gewinnen und zu Ihren Stammkunden machen',

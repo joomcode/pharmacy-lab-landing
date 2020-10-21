@@ -8,7 +8,7 @@ const dialogs = [
   {
     question: 'Ich möchte den lokalen Einzelhandel und nicht die globalen Online-Giganten unterstützen',
     response:
-      'Viele Leute wollen den Einzelhandel in ihrer eigenen Stadt unterstützen, und wir möchten dazu beitragen, dass das noch bequemer möglich ist.',
+      'Viele Leute wollen den Einzelhandel und die lokalen Logistikanbieter in ihrer eigenen Stadt unterstützen, die eine Verantwortung für die Themen Umwelt und Nachhaltigkeit übernehmen. Wir möchten dazu beitragen, dass das noch bequemer möglich ist.',
   },
   {
     question: 'Existierende Online-Apotheken sind nicht benutzerfreundlich und praktisch',
@@ -18,7 +18,7 @@ const dialogs = [
   {
     question: 'Wie finde ich in der Nähe eine Apotheke mit dem günstigsten Angebot für OTC-Arzneimittel?',
     response:
-      'Wir schaffen einen gemeinschaftlichen Raum, wo der Kunde ein günstiges Angebot von den Apotheken in seiner Nähe leicht finden und auswählen kann.',
+      'Joom Pharm Solutions schafft einen gemeinschaftlichen Raum, wo der Kunde ein günstiges Angebot von den Apotheken in seiner Nähe leicht finden und auswählen kann.',
   },
   {
     question: 'Ich will Produkte bei den bewährten deutschen Apotheken kaufen',
