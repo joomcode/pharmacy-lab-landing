@@ -107,6 +107,27 @@ pipeline {
             }
           }
         }
+        stage('Deploy if master') {
+          when {
+            expression { env.BRANCH_NAME == 'master' }
+          }
+          steps {
+            script {
+              build job: 'deploy-production-kube', parameters: [
+                string(name: 'DEPLOY', value: groovy.json.JsonOutput.toJson([
+                  inventory: 'production',
+                  versions : [
+                    [
+                      'chart'    : 'web-pharmacy-lab-landing',
+                      'version'  : imageTag.toString(),
+                      'maturity' : 'built'
+                    ],
+                  ],
+                ])),
+              ]
+            }
+          }
+        }
       }
     }
   }
