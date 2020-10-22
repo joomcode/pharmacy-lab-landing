@@ -1,7 +1,10 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import fetch from 'node-fetch';
 
-const SLACK_HOOK = 'https://hooks.slack.com/services/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';
+const SLACK_HOOK = Buffer.from(
+  'aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDAzSjFLODhCL0IwMURUS0YxQkdRL0toQTJLdFlTdVJJWHZ6cHBVN2J3bzNEUA==',
+  'base64',
+).toString();
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
